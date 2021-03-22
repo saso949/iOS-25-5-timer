@@ -60,6 +60,16 @@ class ViewController: UIViewController {
             }
         }else if (tt % 2 == 0){
             
+            if situationLabel.text == "今の状況" || situationLabel.text == "簡易休憩中" || situationLabel.text == "長期休憩中" || situationLabel.text == "勉強中..."{
+                situationLabel.text = "勉強中"
+            }else if situationLabel.text == "勉強中"{
+                situationLabel.text = "勉強中."
+            }else if situationLabel.text == "勉強中."{
+                situationLabel.text = "勉強中.."
+            }else if situationLabel.text == "勉強中.."{
+                situationLabel.text = "勉強中..."
+            }
+            
             
             //25分タイマー
             if viewCount < 10{
