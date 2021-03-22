@@ -96,9 +96,21 @@ class ViewController: UIViewController {
                 viewCount = 0
                 a = 0
                 b = 0
+                situationLabel.text = "勉強中"
             }
             
         }else if (tt % 2 == 1){
+            if situationLabel.text == "簡易休憩中..." || situationLabel.text == "勉強中"{
+                situationLabel.text = "簡易休憩中"
+            }else if situationLabel.text == "簡易休憩中"{
+                situationLabel.text = "簡易休憩中."
+            }else if situationLabel.text == "簡易休憩中."{
+                situationLabel.text = "簡易休憩中.."
+            }else if situationLabel.text == "簡易休憩中.."{
+                situationLabel.text = "簡易休憩中..."
+            }
+            
+            
             //5分タイマー
             if viewCount < 10{
                 countLabel.text = "00:0" + String(viewCount)
