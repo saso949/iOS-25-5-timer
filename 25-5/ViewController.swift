@@ -52,6 +52,10 @@ class ViewController: UIViewController {
             
             if viewCount == 1800{
                 tt += 1
+                studyCount += 1
+                viewCount = 0
+                a = 0
+                b = 0
             }
         }else if (tt % 2 == 0){
             
@@ -77,6 +81,9 @@ class ViewController: UIViewController {
             if viewCount == 1500{
                 tt += 1
                 studyCount += 1
+                viewCount = 0
+                a = 0
+                b = 0
             }
             
         }else if (tt % 2 == 1){
@@ -95,6 +102,9 @@ class ViewController: UIViewController {
             
             if viewCount == 300 {
                 tt += 1
+                viewCount = 0
+                a = 0
+                b = 0
             }
         }
     }
