@@ -36,6 +36,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="stopButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="64a-DU-Jln"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvM-wE-uag">
                                 <rect key="frame" x="48" y="333" width="105" height="58"/>
@@ -51,6 +54,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="startButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vCA-SX-fmX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -67,6 +73,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jjT-OO-iyR" secondAttribute="trailing" constant="41" id="s8g-aZ-MYi"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="countLabel" destination="MIu-9R-kff" id="VhV-Tk-8nm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
