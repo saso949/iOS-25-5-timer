@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var situationLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -31,6 +32,17 @@ class ViewController: UIViewController {
         b = viewCount % 60
         
         if studyCount % 5 == 0 && tt > 0 {
+            if situationLabel.text == "長期休憩中..." || situationLabel.text == "勉強中"{
+                situationLabel.text = "長期休憩中"
+            }else if situationLabel.text == "長期休憩中"{
+                situationLabel.text = "長期休憩中."
+            }else if situationLabel.text == "長期休憩中."{
+                situationLabel.text = "長期休憩中.."
+            }else if situationLabel.text == "長期休憩中.."{
+                situationLabel.text = "長期休憩中..."
+            }
+            
+            
             //30分タイマー
             if viewCount < 10{
                 countLabel.text = "00:0" + String(viewCount)
@@ -56,8 +68,20 @@ class ViewController: UIViewController {
                 viewCount = 0
                 a = 0
                 b = 0
+                situationLabel.text = "長期休憩中"
             }
         }else if (tt % 2 == 0){
+            
+            if situationLabel.text == "今の状況" || situationLabel.text == "簡易休憩中" || situationLabel.text == "長期休憩中" || situationLabel.text == "勉強中..."{
+                situationLabel.text = "勉強中"
+            }else if situationLabel.text == "勉強中"{
+                situationLabel.text = "勉強中."
+            }else if situationLabel.text == "勉強中."{
+                situationLabel.text = "勉強中.."
+            }else if situationLabel.text == "勉強中.."{
+                situationLabel.text = "勉強中..."
+            }
+            
             
             //25分タイマー
             if viewCount < 10{
@@ -84,9 +108,21 @@ class ViewController: UIViewController {
                 viewCount = 0
                 a = 0
                 b = 0
+                situationLabel.text = "勉強中"
             }
             
         }else if (tt % 2 == 1){
+            if situationLabel.text == "簡易休憩中..." || situationLabel.text == "勉強中"{
+                situationLabel.text = "簡易休憩中"
+            }else if situationLabel.text == "簡易休憩中"{
+                situationLabel.text = "簡易休憩中."
+            }else if situationLabel.text == "簡易休憩中."{
+                situationLabel.text = "簡易休憩中.."
+            }else if situationLabel.text == "簡易休憩中.."{
+                situationLabel.text = "簡易休憩中..."
+            }
+            
+            
             //5分タイマー
             if viewCount < 10{
                 countLabel.text = "00:0" + String(viewCount)
@@ -105,6 +141,7 @@ class ViewController: UIViewController {
                 viewCount = 0
                 a = 0
                 b = 0
+                situationLabel.text = "簡易休憩中"
             }
         }
     }

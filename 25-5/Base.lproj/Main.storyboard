@@ -58,6 +58,15 @@
                                     <action selector="startButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vCA-SX-fmX"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今の状況" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWq-J5-25C">
+                                <rect key="frame" x="0.0" y="0.0" width="180" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mWq-J5-25C" secondAttribute="height" multiplier="60:7" id="jrE-az-kbf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -69,12 +78,16 @@
                             <constraint firstItem="yvM-wE-uag" firstAttribute="top" secondItem="MIu-9R-kff" secondAttribute="bottom" constant="14.5" id="QOL-Oz-1ie"/>
                             <constraint firstItem="jjT-OO-iyR" firstAttribute="top" secondItem="MIu-9R-kff" secondAttribute="bottom" constant="14.5" id="SuU-VF-Sdj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yvM-wE-uag" secondAttribute="bottom" constant="177" id="TkZ-Kr-bq9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mWq-J5-25C" secondAttribute="trailing" constant="140" id="gDW-0w-tF9"/>
+                            <constraint firstItem="mWq-J5-25C" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="h9b-Cp-apS"/>
                             <constraint firstItem="MIu-9R-kff" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kXp-yV-Pm1"/>
+                            <constraint firstItem="mWq-J5-25C" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="n9s-eU-cvm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jjT-OO-iyR" secondAttribute="trailing" constant="41" id="s8g-aZ-MYi"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="countLabel" destination="MIu-9R-kff" id="dfZ-tw-YHg"/>
+                        <outlet property="situationLabel" destination="mWq-J5-25C" id="zx2-p4-zNg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
