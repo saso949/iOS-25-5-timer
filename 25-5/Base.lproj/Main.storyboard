@@ -74,7 +74,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="countLabel" destination="MIu-9R-kff" id="VhV-Tk-8nm"/>
+                        <outlet property="countLabel" destination="MIu-9R-kff" id="dfZ-tw-YHg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
