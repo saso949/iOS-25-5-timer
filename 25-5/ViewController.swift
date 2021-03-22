@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     var OurTImer = Timer()
-    var TimerDisplayed = 0
+    var viewCount = 0
     @IBOutlet weak var countLabel: UILabel!
     
     
@@ -28,8 +28,14 @@ class ViewController: UIViewController {
     }
     
     @objc func Action() {
-            TimerDisplayed += 1
-            countLabel.text = String(TimerDisplayed)
+            viewCount += 1
+        
+        if viewCount < 10{
+            countLabel.text = "00:0" + String(viewCount)
+        }else if viewCount < 60{
+            countLabel.text = "00:" + String(viewCount)
+        }
+        
         }
 
 }
