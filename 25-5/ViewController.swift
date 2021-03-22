@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var situationLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -58,6 +59,7 @@ class ViewController: UIViewController {
                 b = 0
             }
         }else if (tt % 2 == 0){
+            
             
             //25分タイマー
             if viewCount < 10{
