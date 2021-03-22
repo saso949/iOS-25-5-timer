@@ -68,6 +68,7 @@ class ViewController: UIViewController {
                 viewCount = 0
                 a = 0
                 b = 0
+                situationLabel.text = "長期休憩中"
             }
         }else if (tt % 2 == 0){
             
@@ -140,6 +141,7 @@ class ViewController: UIViewController {
                 viewCount = 0
                 a = 0
                 b = 0
+                situationLabel.text = "簡易休憩中"
             }
         }
     }
