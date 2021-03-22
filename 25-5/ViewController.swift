@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     var viewCount = 0
     var a = 0
     var b = 0
+    var tt = 0
+    var studyCount = 0
     
     
     @objc func Action() {
@@ -28,6 +30,30 @@ class ViewController: UIViewController {
         a = viewCount / 60
         b = viewCount % 60
         
+        if studyCount % 5 == 0 && tt > 0 {
+            //30分タイマー
+            if viewCount < 10{
+                countLabel.text = "00:0" + String(viewCount)
+            }else if viewCount < 60{
+                countLabel.text = "00:" + String(viewCount)
+            }else if viewCount < 600{
+                if b < 10{
+                    countLabel.text = "0" + String(a) + ":0" + String(b)
+                }else{
+                    countLabel.text = "0" + String(a) + ":" + String(b)
+                }
+            }else if viewCount < 1801{
+                if b < 10 {
+                    countLabel.text = String(a) + ":0" + String(b)
+                }else{
+                    countLabel.text = String(a) + ":" + String(b)
+                }
+            }
+            
+            if viewCount == 1800{
+                tt += 1
+            }
+        }else if (tt % 2 == 0){
         
         //25分タイマー
         if viewCount < 10{
@@ -49,10 +75,10 @@ class ViewController: UIViewController {
         }
         
         if viewCount == 1500{
-            
+            tt += 1
         }
         
-        
+    }
         
     }
     
