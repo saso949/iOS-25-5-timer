@@ -9,11 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var OurTImer = Timer()
-    var viewCount = 0
-    var a = 0
-    var b = 0
-    
     @IBOutlet weak var countLabel: UILabel!
     
     
@@ -22,13 +17,11 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func startButton(_ sender: Any) {
-        OurTImer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action), userInfo: nil, repeats: true)
-    }
-
+    var OurTImer = Timer()
+    var viewCount = 0
+    var a = 0
+    var b = 0
     
-    @IBAction func stopButton(_ sender: Any) {
-    }
     
     @objc func Action() {
         viewCount += 1
@@ -61,7 +54,19 @@ class ViewController: UIViewController {
         
         
         
-        }
-
+    }
+    
+    
+    
+    
+    @IBAction func startButton(_ sender: Any) {
+        OurTImer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action), userInfo: nil, repeats: true)
+    }
+    
+    
+    @IBAction func stopButton(_ sender: Any) {
+    }
+    
+    
 }
 
