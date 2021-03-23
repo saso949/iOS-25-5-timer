@@ -11,6 +11,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var situationLabel: UILabel!
+    @IBOutlet weak var stopButton: UIButton!
+    
     
     
     override func viewDidLoad() {
@@ -153,9 +155,16 @@ class ViewController: UIViewController {
         OurTImer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action), userInfo: nil, repeats: true)
     }
     
-    
+    var stopCounter = 0
     @IBAction func stopButton(_ sender: Any) {
-        OurTImer.invalidate()
+        if stopCounter % 2 == 0{
+            stopButton.setTitle("再開", for: .normal)
+            OurTImer.invalidate()
+        }else if stopCounter % 2 == 1{
+            OurTImer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action), userInfo: nil, repeats: true)
+            stopButton.setTitle("ストップ", for: .normal)
+        }
+
     }
     
     
