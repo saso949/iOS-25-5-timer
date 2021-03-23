@@ -164,9 +164,11 @@ class ViewController: UIViewController {
         if stopCounter % 2 == 0{
             stopButton.setTitle("再開", for: .normal)
             OurTImer.invalidate()
+            stopCounter += 1
         }else if stopCounter % 2 == 1{
             OurTImer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action), userInfo: nil, repeats: true)
             stopButton.setTitle("ストップ", for: .normal)
+            stopCounter += 1
         }
 
     }
