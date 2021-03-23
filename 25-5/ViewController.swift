@@ -155,6 +155,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func stopButton(_ sender: Any) {
+        OurTImer.invalidate()
     }
     
     
