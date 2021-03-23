@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var situationLabel: UILabel!
     @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var startButton: UIButton!
+    
     
     
     
@@ -153,6 +155,8 @@ class ViewController: UIViewController {
     
     @IBAction func startButton(_ sender: Any) {
         OurTImer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action), userInfo: nil, repeats: true)
+        startButton.isEnabled = false
+        startButton.backgroundColor = UIColor.gray
     }
     
     var stopCounter = 0
