@@ -8,6 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    let userDefaults = UserDefaults.standard
     
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var situationLabel: UILabel!
@@ -21,6 +22,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        if let fileTotal = userDefaults.string(forKey: "total") {
+            totalCount = Int(fileTotal)!
+            totalLabel.text = "累計ポモドーロ数:" + String(totalCount) + "ポモドーロ"
+        }
+        
     }
     
     var OurTImer = Timer()
@@ -28,7 +35,7 @@ class ViewController: UIViewController {
     var a = 0
     var b = 0
     var tt = 0
-    var studyCount = 0
+    var studyCount = 1
     var totalCount = 0
     
     
@@ -75,6 +82,8 @@ class ViewController: UIViewController {
                 a = 0
                 b = 0
                 totalCount += 1
+                userDefaults.set(totalCount, forKey: "total")
+                            userDefaults.synchronize()
                 totalLabel.text = "累計ポモドーロ数:" + String(totalCount) + "ポモドーロ"
                 situationLabel.text = "長期休憩中"
             }
@@ -159,7 +168,7 @@ class ViewController: UIViewController {
     
     @IBAction func startButton(_ sender: Any) {
         OurTImer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action), userInfo: nil, repeats: true)
-        startButton.isEnabled = false
+       // startButton.isEnabled = false
         startButton.backgroundColor = UIColor.gray
     }
     
