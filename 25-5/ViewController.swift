@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var situationLabel: UILabel!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var totalLabel: UILabel!
     
     
     
@@ -28,6 +29,7 @@ class ViewController: UIViewController {
     var b = 0
     var tt = 0
     var studyCount = 0
+    var totalCount = 0
     
     
     @objc func Action() {
@@ -72,6 +74,8 @@ class ViewController: UIViewController {
                 viewCount = 0
                 a = 0
                 b = 0
+                totalCount += 1
+                totalLabel.text = "累計ポモドーロ数:" + String(totalCount) + "ポモドーロ"
                 situationLabel.text = "長期休憩中"
             }
         }else if (tt % 2 == 0){
