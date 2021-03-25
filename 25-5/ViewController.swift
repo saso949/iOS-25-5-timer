@@ -28,6 +28,15 @@ class ViewController: UIViewController {
             totalLabel.text = "累計ポモドーロ数:" + String(totalCount) + "ポモドーロ"
         }
         
+        if (UITraitCollection.current.userInterfaceStyle == .dark) {
+            /* ダークモード時の処理 */
+            countLabel.textColor = UIColor.white
+            totalLabel.textColor = UIColor.white
+        } else {
+            /* ライトモード時の処理 */
+        }
+        
+        
     }
     
     var OurTImer = Timer()
