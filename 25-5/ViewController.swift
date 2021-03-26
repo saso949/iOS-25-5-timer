@@ -177,7 +177,7 @@ class ViewController: UIViewController {
     
     @IBAction func startButton(_ sender: Any) {
         OurTImer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action), userInfo: nil, repeats: true)
-       // startButton.isEnabled = false
+        startButton.isEnabled = false
         startButton.backgroundColor = UIColor.gray
     }
     
