@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import AudioToolbox
+
 
 class ViewController: UIViewController {
     let userDefaults = UserDefaults.standard
@@ -191,6 +193,9 @@ class ViewController: UIViewController {
             stopButton.setTitle("再開", for: .normal)
             OurTImer.invalidate()
             stopCounter += 1
+            let soundIdRing: SystemSoundID = 1302 //鐘
+            AudioServicesPlaySystemSound(soundIdRing)
+
         }else if stopCounter % 2 == 1{
             OurTImer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action), userInfo: nil, repeats: true)
             stopButton.setTitle("ストップ", for: .normal)
