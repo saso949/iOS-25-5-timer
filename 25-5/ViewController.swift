@@ -18,6 +18,10 @@ class ViewController: UIViewController {
     
     
     
+    override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+      UIApplication.shared.isIdleTimerDisabled = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
