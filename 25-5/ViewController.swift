@@ -8,11 +8,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    let userDefaults = UserDefaults.standard
     
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var situationLabel: UILabel!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var totalLabel: UILabel!
     
     
     
@@ -20,6 +22,21 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        if let fileTotal = userDefaults.string(forKey: "total") {
+            totalCount = Int(fileTotal)!
+            totalLabel.text = "累計ポモドーロ数:" + String(totalCount) + "ポモドーロ"
+        }
+        
+        if (UITraitCollection.current.userInterfaceStyle == .dark) {
+            /* ダークモード時の処理 */
+            countLabel.textColor = UIColor.white
+            totalLabel.textColor = UIColor.white
+        } else {
+            /* ライトモード時の処理 */
+        }
+        
+        
     }
     
     var OurTImer = Timer()
@@ -27,7 +44,8 @@ class ViewController: UIViewController {
     var a = 0
     var b = 0
     var tt = 0
-    var studyCount = 0
+    var studyCount = 1
+    var totalCount = 0
     
     
     @objc func Action() {
@@ -72,6 +90,10 @@ class ViewController: UIViewController {
                 viewCount = 0
                 a = 0
                 b = 0
+                totalCount += 1
+                userDefaults.set(totalCount, forKey: "total")
+                            userDefaults.synchronize()
+                totalLabel.text = "累計ポモドーロ数:" + String(totalCount) + "ポモドーロ"
                 situationLabel.text = "長期休憩中"
             }
         }else if (tt % 2 == 0){
