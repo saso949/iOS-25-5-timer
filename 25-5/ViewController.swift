@@ -12,6 +12,7 @@ import AVFoundation
 class ViewController: UIViewController {
     let userDefaults = UserDefaults.standard
     var player:AVAudioPlayer?
+    var player1:AVAudioPlayer?
     
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var situationLabel: UILabel!
@@ -103,6 +104,16 @@ class ViewController: UIViewController {
                             userDefaults.synchronize()
                 totalLabel.text = "累計ポモドーロ数:" + String(totalCount) + "ポモドーロ"
                 situationLabel.text = "長期休憩中"
+                
+                let url1 = Bundle.main.url(forResource: "clock2", withExtension: "mp3")
+                
+                do {
+                    player1 = try AVAudioPlayer(contentsOf: url1!)
+                                 player1?.play()
+                      } catch {
+                          print("error")
+                      }
+                
             }
         }else if (tt % 2 == 0){
             
@@ -138,6 +149,27 @@ class ViewController: UIViewController {
             
             if viewCount == 1500{
                 tt += 1
+                if tt % 5 == 0 || tt > 0{
+                    let url = Bundle.main.url(forResource: "clock1", withExtension: "mp3")
+                    
+                    do {
+                        player = try AVAudioPlayer(contentsOf: url!)
+                                     player?.play()
+                          } catch {
+                              print("error")
+                          }
+                }else{
+                    let url1 = Bundle.main.url(forResource: "clock2", withExtension: "mp3")
+                    
+                    do {
+                        player1 = try AVAudioPlayer(contentsOf: url1!)
+                                     player1?.play()
+                          } catch {
+                              print("error")
+                          }
+                }
+                
+                
                 studyCount += 1
                 viewCount = 0
                 a = 0
@@ -172,20 +204,18 @@ class ViewController: UIViewController {
             
             if viewCount == 300 {
                 tt += 1
-                if tt % 5 == 0 || tt > 0{
-                    let url = Bundle.main.url(forResource: "clock1", withExtension: "mp3")
-                    
-                    do {
-                        player = try AVAudioPlayer(contentsOf: url!)
-                                     player?.play()
-                          } catch {
-                              print("error")
-                          }
-                }
-                
                 viewCount = 0
                 a = 0
                 b = 0
+                
+                let url1 = Bundle.main.url(forResource: "clock2", withExtension: "mp3")
+                
+                do {
+                    player1 = try AVAudioPlayer(contentsOf: url1!)
+                                 player1?.play()
+                      } catch {
+                          print("error")
+                      }
                 situationLabel.text = "簡易休憩中"
             }
         }
