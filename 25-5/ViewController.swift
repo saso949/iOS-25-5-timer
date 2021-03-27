@@ -6,11 +6,12 @@
 //
 
 import UIKit
-import AudioToolbox
+import AVFoundation
 
 
 class ViewController: UIViewController {
     let userDefaults = UserDefaults.standard
+    var player:AVAudioPlayer?
     
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var situationLabel: UILabel!
@@ -28,6 +29,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         
         if let fileTotal = userDefaults.string(forKey: "total") {
             totalCount = Int(fileTotal)!
@@ -170,6 +172,17 @@ class ViewController: UIViewController {
             
             if viewCount == 300 {
                 tt += 1
+                if tt % 5 == 0 || tt > 0{
+                    let url = Bundle.main.url(forResource: "clock1", withExtension: "mp3")
+                    
+                    do {
+                        player = try AVAudioPlayer(contentsOf: url!)
+                                     player?.play()
+                          } catch {
+                              print("error")
+                          }
+                }
+                
                 viewCount = 0
                 a = 0
                 b = 0
@@ -193,8 +206,6 @@ class ViewController: UIViewController {
             stopButton.setTitle("再開", for: .normal)
             OurTImer.invalidate()
             stopCounter += 1
-            let soundIdRing: SystemSoundID = 1302 //鐘
-            AudioServicesPlaySystemSound(soundIdRing)
 
         }else if stopCounter % 2 == 1{
             OurTImer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action), userInfo: nil, repeats: true)
