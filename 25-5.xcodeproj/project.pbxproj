@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5030E33260F0F75003419E5 /* clock1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C5030E32260F0F75003419E5 /* clock1.mp3 */; };
+		C5030E38260F0FBC003419E5 /* clock2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C5030E37260F0FBC003419E5 /* clock2.mp3 */; };
 		C50817932608422E00F2D1F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50817922608422E00F2D1F9 /* AppDelegate.swift */; };
 		C50817952608422E00F2D1F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50817942608422E00F2D1F9 /* SceneDelegate.swift */; };
 		C50817972608422E00F2D1F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50817962608422E00F2D1F9 /* ViewController.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C5030E32260F0F75003419E5 /* clock1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = clock1.mp3; path = ../../../music/clock1.mp3; sourceTree = "<group>"; };
+		C5030E37260F0FBC003419E5 /* clock2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = clock2.mp3; path = ../../../music/clock2.mp3; sourceTree = "<group>"; };
 		C508178F2608422E00F2D1F9 /* 25-5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "25-5.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C50817922608422E00F2D1F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C50817942608422E00F2D1F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 		C50817912608422E00F2D1F9 /* 25-5 */ = {
 			isa = PBXGroup;
 			children = (
+				C5030E32260F0F75003419E5 /* clock1.mp3 */,
+				C5030E37260F0FBC003419E5 /* clock2.mp3 */,
 				C50817922608422E00F2D1F9 /* AppDelegate.swift */,
 				C50817942608422E00F2D1F9 /* SceneDelegate.swift */,
 				C50817962608422E00F2D1F9 /* ViewController.swift */,
@@ -232,7 +238,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C508179F2608423000F2D1F9 /* LaunchScreen.storyboard in Resources */,
+				C5030E33260F0F75003419E5 /* clock1.mp3 in Resources */,
 				C508179C2608423000F2D1F9 /* Assets.xcassets in Resources */,
+				C5030E38260F0FBC003419E5 /* clock2.mp3 in Resources */,
 				C508179A2608422E00F2D1F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

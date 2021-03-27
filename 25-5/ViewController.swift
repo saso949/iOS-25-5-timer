@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import AVFoundation
+
 
 class ViewController: UIViewController {
     let userDefaults = UserDefaults.standard
+    var player:AVAudioPlayer?
+    var player1:AVAudioPlayer?
     
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var situationLabel: UILabel!
@@ -18,10 +22,15 @@ class ViewController: UIViewController {
     
     
     
+    override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+      UIApplication.shared.isIdleTimerDisabled = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         
         if let fileTotal = userDefaults.string(forKey: "total") {
             totalCount = Int(fileTotal)!
@@ -95,6 +104,16 @@ class ViewController: UIViewController {
                             userDefaults.synchronize()
                 totalLabel.text = "累計ポモドーロ数:" + String(totalCount) + "ポモドーロ"
                 situationLabel.text = "長期休憩中"
+                
+                let url1 = Bundle.main.url(forResource: "clock2", withExtension: "mp3")
+                
+                do {
+                    player1 = try AVAudioPlayer(contentsOf: url1!)
+                                 player1?.play()
+                      } catch {
+                          print("error")
+                      }
+                
             }
         }else if (tt % 2 == 0){
             
@@ -130,6 +149,27 @@ class ViewController: UIViewController {
             
             if viewCount == 1500{
                 tt += 1
+                if tt % 5 == 0 || tt > 0{
+                    let url = Bundle.main.url(forResource: "clock1", withExtension: "mp3")
+                    
+                    do {
+                        player = try AVAudioPlayer(contentsOf: url!)
+                                     player?.play()
+                          } catch {
+                              print("error")
+                          }
+                }else{
+                    let url1 = Bundle.main.url(forResource: "clock2", withExtension: "mp3")
+                    
+                    do {
+                        player1 = try AVAudioPlayer(contentsOf: url1!)
+                                     player1?.play()
+                          } catch {
+                              print("error")
+                          }
+                }
+                
+                
                 studyCount += 1
                 viewCount = 0
                 a = 0
@@ -167,6 +207,15 @@ class ViewController: UIViewController {
                 viewCount = 0
                 a = 0
                 b = 0
+                
+                let url1 = Bundle.main.url(forResource: "clock2", withExtension: "mp3")
+                
+                do {
+                    player1 = try AVAudioPlayer(contentsOf: url1!)
+                                 player1?.play()
+                      } catch {
+                          print("error")
+                      }
                 situationLabel.text = "簡易休憩中"
             }
         }
@@ -187,6 +236,7 @@ class ViewController: UIViewController {
             stopButton.setTitle("再開", for: .normal)
             OurTImer.invalidate()
             stopCounter += 1
+
         }else if stopCounter % 2 == 1{
             OurTImer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action), userInfo: nil, repeats: true)
             stopButton.setTitle("ストップ", for: .normal)
