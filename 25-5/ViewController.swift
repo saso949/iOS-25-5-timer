@@ -32,6 +32,13 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self,
+                                       selector: #selector(self.Name),
+                                       name:UIApplication.didEnterBackgroundNotification,
+                                       object: nil)
+        
+        
         if let fileTotal = userDefaults.string(forKey: "total") {
             totalCount = Int(fileTotal)!
             totalLabel.text = "累計ポモドーロ数:" + String(totalCount) + "ポモドーロ"
@@ -55,6 +62,11 @@ class ViewController: UIViewController {
     var tt = 0
     var studyCount = 1
     var totalCount = 0
+    
+    
+    @objc func Name() {
+    print("appFinish!")
+    }
     
     
     @objc func Action() {
