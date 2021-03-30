@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
-                                       selector: #selector(self.Name),
+                                       selector: #selector(self.stop),
                                        name:UIApplication.didEnterBackgroundNotification,
                                        object: nil)
         
@@ -62,10 +62,13 @@ class ViewController: UIViewController {
     var tt = 0
     var studyCount = 1
     var totalCount = 0
+    var time = Date()
     
     
-    @objc func Name() {
-    print("appFinish!")
+    @objc func stop() {
+        let date :Date = Date()
+        time = date
+        print(date)
     }
     
     
