@@ -39,6 +39,12 @@ class ViewController: UIViewController {
                                        object: nil)
         
         
+        notificationCenter.addObserver(self,
+                                       selector: #selector(self.start),
+                                       name:UIApplication.didBecomeActiveNotification,
+                                       object: nil)
+        
+        
         if let fileTotal = userDefaults.string(forKey: "total") {
             totalCount = Int(fileTotal)!
             totalLabel.text = "累計ポモドーロ数:" + String(totalCount) + "ポモドーロ"
@@ -69,6 +75,10 @@ class ViewController: UIViewController {
         let date :Date = Date()
         time = date
         print(date)
+    }
+    
+    @objc func start() {
+        print("start!")
     }
     
     
