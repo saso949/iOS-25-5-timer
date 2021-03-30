@@ -81,6 +81,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
         let now = Date()
         print("start!")
         let span = (floor(now.timeIntervalSince(time)))
+        viewCount += Int(span)
         print(span)
     }
     
