@@ -9,7 +9,7 @@ import UIKit
 import AVFoundation
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController , UIApplicationDelegate{
     let userDefaults = UserDefaults.standard
     var player:AVAudioPlayer?
     var player1:AVAudioPlayer?
@@ -35,13 +35,13 @@ class ViewController: UIViewController {
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
                                        selector: #selector(self.stop),
-                                       name:UIApplication.didEnterBackgroundNotification,
+                                       name: UIApplication.willResignActiveNotification,
                                        object: nil)
         
         
         notificationCenter.addObserver(self,
                                        selector: #selector(self.start),
-                                       name:UIApplication.didBecomeActiveNotification,
+                                       name:UIApplication.willEnterForegroundNotification,
                                        object: nil)
         
         
@@ -78,7 +78,10 @@ class ViewController: UIViewController {
     }
     
     @objc func start() {
+        let now = Date()
         print("start!")
+        let span = (floor(now.timeIntervalSince(time)))
+        print(span)
     }
     
     
