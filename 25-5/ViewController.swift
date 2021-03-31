@@ -84,6 +84,39 @@ class ViewController: UIViewController , UIApplicationDelegate{
             let span = (floor(now.timeIntervalSince(time)))
             viewCount += Int(span)
             print(span)
+            
+            if studyCount % 5 == 0 && tt > 0 {
+                if Int(span) >= 1800{
+                    tt += 1
+                    studyCount += 1
+                    viewCount = 0
+                    a = 0
+                    b = 0
+                    totalCount += 1
+                    userDefaults.set(totalCount, forKey: "total")
+                                userDefaults.synchronize()
+                    totalLabel.text = "累計ポモドーロ数:" + String(totalCount) + "ポモドーロ"
+                    situationLabel.text = "長期休憩中"
+                }
+            }else if tt % 2 == 0{
+                if Int(span) >= 1500{
+                    tt += 1
+                    studyCount += 1
+                    viewCount = 0
+                    a = 0
+                    b = 0
+                    situationLabel.text = "勉強中"
+                }
+                
+            }else if tt % 2 == 1{
+                if Int(span) >= 300{
+                    tt += 1
+                    viewCount = 0
+                    a = 0
+                    b = 0
+                    situationLabel.text = "簡易休憩中"
+                }
+            }
         }
     }
     
