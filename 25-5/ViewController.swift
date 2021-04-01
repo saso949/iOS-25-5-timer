@@ -124,7 +124,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
             print(span)
             
             if studyCount % 5 == 0 && tt > 0 {
-                if Int(span) >= 1800{
+                if viewCount >= 1800{
                     tt += 1
                     studyCount += 1
                     viewCount = 0
@@ -137,7 +137,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
                     situationLabel.text = "長期休憩中"
                 }
             }else if tt % 2 == 0{
-                if Int(span) >= 1500{
+                if viewCount >= 1500{
                     tt += 1
                     studyCount += 1
                     viewCount = 0
@@ -147,7 +147,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
                 }
                 
             }else if tt % 2 == 1{
-                if Int(span) >= 300{
+                if viewCount >= 300{
                     tt += 1
                     viewCount = 0
                     a = 0
