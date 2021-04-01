@@ -62,7 +62,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
     }
     
     var OurTImer = Timer()
-    var viewCount = 0
+    var viewCount = 1488
     var a = 0
     var b = 0
     var tt = 0
@@ -87,7 +87,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
         }else if tt % 2 == 0{
             remaining = 1500 - viewCount
             sst = "勉強"
-            if tt % 5 == 0 || tt > 0{
+            if tt % 5 == 0 && tt > 0{
                 sst2 = "長期休憩"
             }else{
                 sst2 = "簡易休憩"
@@ -103,7 +103,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
            let content = UNMutableNotificationContent()
            // 通知内容の設定
            content.title = sst + "の時間が終了しました！"
-           content.body = "アプリを開いて次の" + sst2 + "時間を開始してください"
+           content.body = "アプリを開いて次の" + sst2 + "タイマーを開始してください"
         content.sound = UNNotificationSound.default
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(remaining), repeats: false)
@@ -251,7 +251,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
             
             if viewCount == 1500{
                 tt += 1
-                if tt % 5 == 0 || tt > 0{
+                if tt % 5 == 0 && tt > 0{
                     let url = Bundle.main.url(forResource: "clock1", withExtension: "mp3")
                     
                     do {
