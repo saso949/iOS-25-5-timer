@@ -13,6 +13,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
     let userDefaults = UserDefaults.standard
     var player:AVAudioPlayer?
     var player1:AVAudioPlayer?
+    var request:UNNotificationRequest!
     
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var situationLabel: UILabel!
@@ -30,6 +31,36 @@ class ViewController: UIViewController , UIApplicationDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        // 日付フォーマット
+              let date = Date()
+              let dateFormatter = DateFormatter()
+              dateFormatter.timeStyle = .medium
+              dateFormatter.dateStyle = .medium
+              dateFormatter.locale = Locale(identifier: "ja_JP")
+       
+              // 現在時刻の1分後に設定
+              let date2 = Date(timeInterval: 20, since: date)
+              let targetDate = Calendar.current.dateComponents(
+                  [.year, .month, .day, .hour, .minute],
+                  from: date2)
+       
+              let dateString = dateFormatter.string(from: date2)
+              print(dateString)
+       
+              // トリガーの作成
+              let trigger = UNCalendarNotificationTrigger.init(dateMatching: targetDate, repeats: false)
+       
+        // 通知コンテンツの作成
+        let content = UNMutableNotificationContent()
+        content.title = "Calendar Notification"
+        content.body = "2020/4/26 21:06:10"
+        content.sound = UNNotificationSound.default
+ 
+        // 通知リクエストの作成
+        request = UNNotificationRequest.init(
+                identifier: "CalendarNotification",
+                content: content,
+                trigger: trigger)
         
         
         let notificationCenter = NotificationCenter.default
@@ -298,6 +329,8 @@ class ViewController: UIViewController , UIApplicationDelegate{
     var stopSituation = "false"
     var stopCounter = 0
     @IBAction func stopButton(_ sender: Any) {
+        let center = UNUserNotificationCenter.current()
+                center.add(request)
         if stopCounter % 2 == 0{
             stopButton.setTitle("再開", for: .normal)
             OurTImer.invalidate()
