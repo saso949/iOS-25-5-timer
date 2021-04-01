@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C5030E33260F0F75003419E5 /* clock1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C5030E32260F0F75003419E5 /* clock1.mp3 */; };
-		C5030E38260F0FBC003419E5 /* clock2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C5030E37260F0FBC003419E5 /* clock2.mp3 */; };
 		C50817932608422E00F2D1F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50817922608422E00F2D1F9 /* AppDelegate.swift */; };
 		C50817952608422E00F2D1F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50817942608422E00F2D1F9 /* SceneDelegate.swift */; };
 		C50817972608422E00F2D1F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50817962608422E00F2D1F9 /* ViewController.swift */; };
@@ -17,6 +15,10 @@
 		C508179F2608423000F2D1F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C508179D2608423000F2D1F9 /* LaunchScreen.storyboard */; };
 		C50817AA2608423100F2D1F9 /* _5_5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50817A92608423100F2D1F9 /* _5_5Tests.swift */; };
 		C50817B52608423100F2D1F9 /* _5_5UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50817B42608423100F2D1F9 /* _5_5UITests.swift */; };
+		C5EE6AE82615F7B80065F99B /* clock1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C5EE6AE72615F7B80065F99B /* clock1.mp3 */; };
+		C5EE6AED2615F7BF0065F99B /* clock2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C5EE6AEC2615F7BF0065F99B /* clock2.mp3 */; };
+		C5EE6B0C2615FB8F0065F99B /* tuti1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C5EE6B0B2615FB8F0065F99B /* tuti1.mp3 */; };
+		C5EE6B192615FBA00065F99B /* tuti2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C5EE6B182615FBA00065F99B /* tuti2.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +39,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C5030E32260F0F75003419E5 /* clock1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = clock1.mp3; path = ../../../music/clock1.mp3; sourceTree = "<group>"; };
-		C5030E37260F0FBC003419E5 /* clock2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = clock2.mp3; path = ../../../music/clock2.mp3; sourceTree = "<group>"; };
 		C508178F2608422E00F2D1F9 /* 25-5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "25-5.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C50817922608422E00F2D1F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C50817942608422E00F2D1F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +53,10 @@
 		C50817B02608423100F2D1F9 /* 25-5UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "25-5UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C50817B42608423100F2D1F9 /* _5_5UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _5_5UITests.swift; sourceTree = "<group>"; };
 		C50817B62608423100F2D1F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5EE6AE72615F7B80065F99B /* clock1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = clock1.mp3; path = ../../../../music/clock1.mp3; sourceTree = "<group>"; };
+		C5EE6AEC2615F7BF0065F99B /* clock2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = clock2.mp3; path = ../../../../music/clock2.mp3; sourceTree = "<group>"; };
+		C5EE6B0B2615FB8F0065F99B /* tuti1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = tuti1.mp3; path = ../../../../music/tuti1.mp3; sourceTree = "<group>"; };
+		C5EE6B182615FBA00065F99B /* tuti2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = tuti2.mp3; path = ../../../../music/tuti2.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +107,8 @@
 		C50817912608422E00F2D1F9 /* 25-5 */ = {
 			isa = PBXGroup;
 			children = (
-				C5030E32260F0F75003419E5 /* clock1.mp3 */,
-				C5030E37260F0FBC003419E5 /* clock2.mp3 */,
+				C5EE6B022615FB7B0065F99B /* tuti */,
+				C5EE6AD62615F7600065F99B /* finishSound */,
 				C50817922608422E00F2D1F9 /* AppDelegate.swift */,
 				C50817942608422E00F2D1F9 /* SceneDelegate.swift */,
 				C50817962608422E00F2D1F9 /* ViewController.swift */,
@@ -132,6 +136,24 @@
 				C50817B62608423100F2D1F9 /* Info.plist */,
 			);
 			path = "25-5UITests";
+			sourceTree = "<group>";
+		};
+		C5EE6AD62615F7600065F99B /* finishSound */ = {
+			isa = PBXGroup;
+			children = (
+				C5EE6AEC2615F7BF0065F99B /* clock2.mp3 */,
+				C5EE6AE72615F7B80065F99B /* clock1.mp3 */,
+			);
+			path = finishSound;
+			sourceTree = "<group>";
+		};
+		C5EE6B022615FB7B0065F99B /* tuti */ = {
+			isa = PBXGroup;
+			children = (
+				C5EE6B182615FBA00065F99B /* tuti2.mp3 */,
+				C5EE6B0B2615FB8F0065F99B /* tuti1.mp3 */,
+			);
+			path = tuti;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,9 +260,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C508179F2608423000F2D1F9 /* LaunchScreen.storyboard in Resources */,
-				C5030E33260F0F75003419E5 /* clock1.mp3 in Resources */,
+				C5EE6B192615FBA00065F99B /* tuti2.mp3 in Resources */,
+				C5EE6AE82615F7B80065F99B /* clock1.mp3 in Resources */,
+				C5EE6B0C2615FB8F0065F99B /* tuti1.mp3 in Resources */,
 				C508179C2608423000F2D1F9 /* Assets.xcassets in Resources */,
-				C5030E38260F0FBC003419E5 /* clock2.mp3 in Resources */,
+				C5EE6AED2615F7BF0065F99B /* clock2.mp3 in Resources */,
 				C508179A2608422E00F2D1F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
