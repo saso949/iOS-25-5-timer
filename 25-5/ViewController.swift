@@ -77,21 +77,33 @@ class ViewController: UIViewController , UIApplicationDelegate{
         print(date)
         
         var remaining = 0
+        var sst = ""
+        var sst2 = ""
         
         if studyCount % 5 == 0 && tt > 0 {
             remaining = 1800 - viewCount
+            sst = "長期休憩"
+            sst2 = "勉強"
         }else if tt % 2 == 0{
             remaining = 1500 - viewCount
+            sst = "勉強"
+            if tt % 5 == 0 || tt > 0{
+                sst2 = "長期休憩"
+            }else{
+                sst2 = "簡易休憩"
+            }
         }else if tt % 2 == 1{
             remaining = 300 - viewCount
+            sst = "簡易休憩"
+            sst2 = "勉強"
         }
         
         
         
            let content = UNMutableNotificationContent()
            // 通知内容の設定
-           content.title = "" + "時間が終了しました！"
-           content.body = "アプリを開いて次の" + "" + "時間を開始してください"
+           content.title = sst + "の時間が終了しました！"
+           content.body = "アプリを開いて次の" + sst2 + "時間を開始してください"
         content.sound = UNNotificationSound.default
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(remaining), repeats: false)
