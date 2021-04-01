@@ -76,12 +76,14 @@ class ViewController: UIViewController , UIApplicationDelegate{
         time = date
         print(date)
         
+        var remaining = 0
+        
         if studyCount % 5 == 0 && tt > 0 {
-
+            remaining = 1800 - viewCount
         }else if tt % 2 == 0{
-            
+            remaining = 1500 - viewCount
         }else if tt % 2 == 1{
- 
+            remaining = 300 - viewCount
         }
         
         
@@ -92,7 +94,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
            content.body = "アプリを開いて次の" + "" + "時間を開始してください"
         content.sound = UNNotificationSound.default
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(remaining), repeats: false)
 
            // 通知スタイルを指定
            let request = UNNotificationRequest(identifier: "uuid", content: content, trigger: trigger)
