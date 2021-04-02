@@ -78,29 +78,26 @@ class ViewController: UIViewController , UIApplicationDelegate{
         
         var remaining = 0
         var sst = ""
-        var sst2 = ""
         var tuti = ""
         
+        if stopSituation == "false"{
         if studyCount % 5 == 0 && tt > 0 {
             remaining = 1800 - viewCount
             sst = "長期休憩"
-            sst2 = "勉強"
             tuti = "tuti1.mp3"
         }else if tt % 2 == 0{
             remaining = 1500 - viewCount
             sst = "勉強"
-            if tt == 4 || tt == 9 || tt == 14 || tt == 19 || tt == 24 || tt == 29{
-                sst2 = "長期休憩"
+            if studyCount == 4 , studyCount == 9 , studyCount == 14 , studyCount == 19{
                 tuti = "tuti2.mp3"
             }else{
-                sst2 = "簡易休憩"
                 tuti = "tuti1.mp3"
             }
         }else if tt % 2 == 1{
             remaining = 300 - viewCount
             sst = "簡易休憩"
-            sst2 = "勉強"
             tuti = "tuti1.mp3"
+        }
         }
         
         
@@ -108,7 +105,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
            let content = UNMutableNotificationContent()
            // 通知内容の設定
            content.title = sst + "の時間が終了しました！"
-           content.body = "アプリを開いて次の" + sst2 + "タイマーを開始してください"
+           content.body = "アプリを開くまで次のタイマーは再生されません"
         content.sound = UNNotificationSound.init(named: UNNotificationSoundName(rawValue: tuti))
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(remaining), repeats: false)
