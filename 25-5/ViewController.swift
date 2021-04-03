@@ -368,7 +368,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
     
     
     @IBAction func finishBL(_ sender: Any) {
-        let dialog = UIAlertController(title: "タイマーを終了しますか？", message: "累計ポモドーロ数はリセットされません", preferredStyle: .alert)
+        let dialog = UIAlertController(title: "タイマーを終了しますか？", message: "終了してもポモドーロ数はリセットされません", preferredStyle: .alert)
         dialog.addAction(UIAlertAction(title: "はい", style: .default, handler: {_ in
             print("")
         }))
