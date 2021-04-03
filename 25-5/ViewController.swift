@@ -98,20 +98,20 @@ class ViewController: UIViewController , UIApplicationDelegate{
                 sst = "簡易休憩"
                 tuti = "tuti1.mp3"
             }
-        
-        
-        let content = UNMutableNotificationContent()
-        // 通知内容の設定
-        content.title = sst + "の時間が終了しました！"
-        content.body = "アプリを開くまで次のタイマーは再生されません"
-        content.sound = UNNotificationSound.init(named: UNNotificationSoundName(rawValue: tuti))
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(remaining), repeats: false)
-        
-        // 通知スタイルを指定
-        let request = UNNotificationRequest(identifier: "uuid", content: content, trigger: trigger)
-        // 通知をセット
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+            
+            
+            let content = UNMutableNotificationContent()
+            // 通知内容の設定
+            content.title = sst + "の時間が終了しました！"
+            content.body = "アプリを開くまで次のタイマーは再生されません"
+            content.sound = UNNotificationSound.init(named: UNNotificationSoundName(rawValue: tuti))
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(remaining), repeats: false)
+            
+            // 通知スタイルを指定
+            let request = UNNotificationRequest(identifier: "uuid", content: content, trigger: trigger)
+            // 通知をセット
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         }
     }
     
@@ -165,6 +165,14 @@ class ViewController: UIViewController , UIApplicationDelegate{
         a = viewCount / 60
         b = viewCount % 60
         
+        if viewCount <= 3{
+            startButton.setTitle("スキップ", for: .normal)
+            startButton.backgroundColor = UIColor(red: 155/255, green: 64/255, blue: 59/255, alpha: 1.0)
+        }else if viewCount > 3{
+            startButton.setTitle("初めから", for: .normal)
+            startButton.backgroundColor = UIColor(red: 114/255, green: 140/255, blue: 54/255, alpha: 1.0)
+        }
+        
         if studyCount % 5 == 0 && tt > 0 {
             if situationLabel.text == "長期休憩中..." || situationLabel.text == "勉強中"{
                 situationLabel.text = "長期休憩中"
@@ -208,13 +216,6 @@ class ViewController: UIViewController , UIApplicationDelegate{
             
             //25分タイマー
             count()
-            if viewCount <= 3{
-                startButton.setTitle("スキップ", for: .normal)
-                startButton.backgroundColor = UIColor(red: 155/255, green: 64/255, blue: 59/255, alpha: 1.0)
-            }else if viewCount > 3{
-                startButton.setTitle("初めから", for: .normal)
-                startButton.backgroundColor = UIColor(red: 114/255, green: 140/255, blue: 54/255, alpha: 1.0)
-            }
             
             if viewCount == 1500{
                 tt += 1
@@ -302,11 +303,11 @@ class ViewController: UIViewController , UIApplicationDelegate{
     var startSitu = "false"
     @IBAction func startButton(_ sender: Any) {
         if startSitu == "false"{
-        OurTImer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action), userInfo: nil, repeats: true)
+            OurTImer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action), userInfo: nil, repeats: true)
             startSitu = "true"
         }
         if self.startButton.currentTitle == "スキップ"{
-            print("あああ")
+            pulus()
         }else if self.startButton.currentTitle == "初めから"{
             viewCount = 0
             startButton.setTitle("スキップ", for: .normal)
@@ -315,6 +316,36 @@ class ViewController: UIViewController , UIApplicationDelegate{
         }
         
     }
+    
+    @objc func pulus() {
+        if studyCount % 5 == 0 && tt > 0 {
+            tt += 1
+            studyCount += 1
+            viewCount = 0
+            a = 0
+            b = 0
+            totalCount += 1
+            userDefaults.set(totalCount, forKey: "total")
+            userDefaults.synchronize()
+            totalLabel.text = "累計ポモドーロ数:" + String(totalCount) + "ポモドーロ"
+            situationLabel.text = "長期休憩中"
+        }else if tt % 2 == 0{
+            tt += 1
+            studyCount += 1
+            viewCount = 0
+            a = 0
+            b = 0
+            situationLabel.text = "勉強中"
+        }else if tt % 2 == 1{
+            tt += 1
+            viewCount = 0
+            a = 0
+            b = 0
+            situationLabel.text = "簡易休憩中"
+        }
+    }
+    
+    
     
     
     var stopSituation = "false"
