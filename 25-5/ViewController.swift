@@ -9,10 +9,11 @@ import UIKit
 import AVFoundation
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController , UIApplicationDelegate{
     let userDefaults = UserDefaults.standard
     var player:AVAudioPlayer?
     var player1:AVAudioPlayer?
+    var request:UNNotificationRequest!
     
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var situationLabel: UILabel!
@@ -30,6 +31,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self,
+                                       selector: #selector(self.stop),
+                                       name: UIApplication.willResignActiveNotification,
+                                       object: nil)
+        
+        
+        notificationCenter.addObserver(self,
+                                       selector: #selector(self.start),
+                                       name:UIApplication.willEnterForegroundNotification,
+                                       object: nil)
         
         
         if let fileTotal = userDefaults.string(forKey: "total") {
@@ -55,6 +68,97 @@ class ViewController: UIViewController {
     var tt = 0
     var studyCount = 1
     var totalCount = 0
+    var time = Date()
+    
+    
+    @objc func stop() {
+        let date :Date = Date()
+        time = date
+        print(date)
+        
+        var remaining = 0
+        var sst = ""
+        var tuti = ""
+        
+        if stopSituation == "false"{
+        if studyCount % 5 == 0 && tt > 0 {
+            remaining = 1800 - viewCount
+            sst = "長期休憩"
+            tuti = "tuti1.mp3"
+        }else if tt % 2 == 0{
+            remaining = 1500 - viewCount
+            sst = "勉強"
+            if studyCount == 4 , studyCount == 9 , studyCount == 14 , studyCount == 19{
+                tuti = "tuti2.mp3"
+            }else{
+                tuti = "tuti1.mp3"
+            }
+        }else if tt % 2 == 1{
+            remaining = 300 - viewCount
+            sst = "簡易休憩"
+            tuti = "tuti1.mp3"
+        }
+        }
+        
+        
+        
+           let content = UNMutableNotificationContent()
+           // 通知内容の設定
+           content.title = sst + "の時間が終了しました！"
+           content.body = "アプリを開くまで次のタイマーは再生されません"
+        content.sound = UNNotificationSound.init(named: UNNotificationSoundName(rawValue: tuti))
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(remaining), repeats: false)
+
+           // 通知スタイルを指定
+           let request = UNNotificationRequest(identifier: "uuid", content: content, trigger: trigger)
+           // 通知をセット
+           UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        
+    }
+    
+    @objc func start() {
+        if stopSituation == "false"{
+            let now = Date()
+            print("start!")
+            let span = (floor(now.timeIntervalSince(time)))
+            viewCount += Int(span)
+            print(span)
+            
+            if studyCount % 5 == 0 && tt > 0 {
+                if viewCount >= 1800{
+                    tt += 1
+                    studyCount += 1
+                    viewCount = 0
+                    a = 0
+                    b = 0
+                    totalCount += 1
+                    userDefaults.set(totalCount, forKey: "total")
+                                userDefaults.synchronize()
+                    totalLabel.text = "累計ポモドーロ数:" + String(totalCount) + "ポモドーロ"
+                    situationLabel.text = "長期休憩中"
+                }
+            }else if tt % 2 == 0{
+                if viewCount >= 1500{
+                    tt += 1
+                    studyCount += 1
+                    viewCount = 0
+                    a = 0
+                    b = 0
+                    situationLabel.text = "勉強中"
+                }
+                
+            }else if tt % 2 == 1{
+                if viewCount >= 300{
+                    tt += 1
+                    viewCount = 0
+                    a = 0
+                    b = 0
+                    situationLabel.text = "簡易休憩中"
+                }
+            }
+        }
+    }
     
     
     @objc func Action() {
@@ -149,7 +253,7 @@ class ViewController: UIViewController {
             
             if viewCount == 1500{
                 tt += 1
-                if tt % 5 == 0 || tt > 0{
+                if tt % 5 == 0 && tt > 0{
                     let url = Bundle.main.url(forResource: "clock1", withExtension: "mp3")
                     
                     do {
@@ -230,17 +334,21 @@ class ViewController: UIViewController {
         startButton.backgroundColor = UIColor.gray
     }
     
+    
+    var stopSituation = "false"
     var stopCounter = 0
     @IBAction func stopButton(_ sender: Any) {
         if stopCounter % 2 == 0{
             stopButton.setTitle("再開", for: .normal)
             OurTImer.invalidate()
             stopCounter += 1
+            stopSituation = "true"
 
         }else if stopCounter % 2 == 1{
             OurTImer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action), userInfo: nil, repeats: true)
             stopButton.setTitle("ストップ", for: .normal)
             stopCounter += 1
+            stopSituation = "false"
         }
 
     }
