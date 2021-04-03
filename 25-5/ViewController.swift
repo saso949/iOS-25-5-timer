@@ -62,7 +62,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
     }
     
     var OurTImer = Timer()
-    var viewCount = 1488
+    var viewCount = 0
     var a = 0
     var b = 0
     var tt = 0
