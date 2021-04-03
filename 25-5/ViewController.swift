@@ -176,26 +176,8 @@ class ViewController: UIViewController , UIApplicationDelegate{
             }else if situationLabel.text == "長期休憩中.."{
                 situationLabel.text = "長期休憩中..."
             }
-            
-            
-            //30分タイマー
-            if viewCount < 10{
-                countLabel.text = "00:0" + String(viewCount)
-            }else if viewCount < 60{
-                countLabel.text = "00:" + String(viewCount)
-            }else if viewCount < 600{
-                if b < 10{
-                    countLabel.text = "0" + String(a) + ":0" + String(b)
-                }else{
-                    countLabel.text = "0" + String(a) + ":" + String(b)
-                }
-            }else if viewCount < 1801{
-                if b < 10 {
-                    countLabel.text = String(a) + ":0" + String(b)
-                }else{
-                    countLabel.text = String(a) + ":" + String(b)
-                }
-            }
+
+            count()
             
             if viewCount == 1800{
                 tt += 1
@@ -233,23 +215,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
             
             
             //25分タイマー
-            if viewCount < 10{
-                countLabel.text = "00:0" + String(viewCount)
-            }else if viewCount < 60{
-                countLabel.text = "00:" + String(viewCount)
-            }else if viewCount < 600{
-                if b < 10{
-                    countLabel.text = "0" + String(a) + ":0" + String(b)
-                }else{
-                    countLabel.text = "0" + String(a) + ":" + String(b)
-                }
-            }else if viewCount < 1501{
-                if b < 10 {
-                    countLabel.text = String(a) + ":0" + String(b)
-                }else{
-                    countLabel.text = String(a) + ":" + String(b)
-                }
-            }
+           count()
             
             if viewCount == 1500{
                 tt += 1
@@ -294,17 +260,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
             
             
             //5分タイマー
-            if viewCount < 10{
-                countLabel.text = "00:0" + String(viewCount)
-            }else if viewCount < 60{
-                countLabel.text = "00:" + String(viewCount)
-            }else if viewCount < 600{
-                if b < 10{
-                    countLabel.text = "0" + String(a) + ":0" + String(b)
-                }else{
-                    countLabel.text = "0" + String(a) + ":" + String(b)
-                }
-            }
+            count()
             
             if viewCount == 300 {
                 tt += 1
@@ -326,8 +282,24 @@ class ViewController: UIViewController , UIApplicationDelegate{
     }
     
     
-    @objc count() {
-        
+    @objc func count() {
+        if viewCount < 10{
+            countLabel.text = "00:0" + String(viewCount)
+        }else if viewCount < 60{
+            countLabel.text = "00:" + String(viewCount)
+        }else if viewCount < 600{
+            if b < 10{
+                countLabel.text = "0" + String(a) + ":0" + String(b)
+            }else{
+                countLabel.text = "0" + String(a) + ":" + String(b)
+            }
+        }else if viewCount < 1801{
+            if b < 10 {
+                countLabel.text = String(a) + ":0" + String(b)
+            }else{
+                countLabel.text = String(a) + ":" + String(b)
+            }
+        }
     }
     
     
