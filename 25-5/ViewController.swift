@@ -302,6 +302,17 @@ class ViewController: UIViewController , UIApplicationDelegate{
         }
     }
     
+    @objc func sound() {
+        let url1 = Bundle.main.url(forResource: "clock2", withExtension: "mp3")
+        
+        do {
+            player1 = try AVAudioPlayer(contentsOf: url1!)
+                         player1?.play()
+              } catch {
+                  print("error")
+              }
+    }
+    
     
     
     @IBAction func startButton(_ sender: Any) {
