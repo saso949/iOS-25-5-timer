@@ -326,6 +326,10 @@ class ViewController: UIViewController , UIApplicationDelegate{
     }
     
     
+    @objc count() {
+        
+    }
+    
     
     
     @IBAction func startButton(_ sender: Any) {
