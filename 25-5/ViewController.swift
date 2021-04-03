@@ -62,7 +62,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
     }
     
     var OurTImer = Timer()
-    var viewCount = 0
+    var viewCount = 1488
     var a = 0
     var b = 0
     var tt = 0
@@ -191,14 +191,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
                 totalLabel.text = "累計ポモドーロ数:" + String(totalCount) + "ポモドーロ"
                 situationLabel.text = "長期休憩中"
                 
-                let url1 = Bundle.main.url(forResource: "clock2", withExtension: "mp3")
-                
-                do {
-                    player1 = try AVAudioPlayer(contentsOf: url1!)
-                                 player1?.play()
-                      } catch {
-                          print("error")
-                      }
+                sound()
                 
             }
         }else if (tt % 2 == 0){
@@ -220,14 +213,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
             if viewCount == 1500{
                 tt += 1
                 if tt % 5 == 0 && tt > 0{
-                    let url = Bundle.main.url(forResource: "clock1", withExtension: "mp3")
-                    
-                    do {
-                        player = try AVAudioPlayer(contentsOf: url!)
-                                     player?.play()
-                          } catch {
-                              print("error")
-                          }
+                    sound()
                 }else{
                     let url1 = Bundle.main.url(forResource: "clock2", withExtension: "mp3")
                     
@@ -268,14 +254,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
                 a = 0
                 b = 0
                 
-                let url1 = Bundle.main.url(forResource: "clock2", withExtension: "mp3")
-                
-                do {
-                    player1 = try AVAudioPlayer(contentsOf: url1!)
-                                 player1?.play()
-                      } catch {
-                          print("error")
-                      }
+                sound()
                 situationLabel.text = "簡易休憩中"
             }
         }
