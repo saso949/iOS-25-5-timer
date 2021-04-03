@@ -24,8 +24,8 @@ class ViewController: UIViewController , UIApplicationDelegate{
     
     
     override func viewWillAppear(_ animated: Bool) {
-      super.viewWillAppear(animated)
-      UIApplication.shared.isIdleTimerDisabled = true
+        super.viewWillAppear(animated)
+        UIApplication.shared.isIdleTimerDisabled = true
     }
     
     override func viewDidLoad() {
@@ -81,39 +81,39 @@ class ViewController: UIViewController , UIApplicationDelegate{
         var tuti = ""
         
         if stopSituation == "false"{
-        if studyCount % 5 == 0 && tt > 0 {
-            remaining = 1800 - viewCount
-            sst = "長期休憩"
-            tuti = "tuti1.mp3"
-        }else if tt % 2 == 0{
-            remaining = 1500 - viewCount
-            sst = "勉強"
-            if studyCount == 4 , studyCount == 9 , studyCount == 14 , studyCount == 19{
-                tuti = "tuti2.mp3"
-            }else{
+            if studyCount % 5 == 0 && tt > 0 {
+                remaining = 1800 - viewCount
+                sst = "長期休憩"
+                tuti = "tuti1.mp3"
+            }else if tt % 2 == 0{
+                remaining = 1500 - viewCount
+                sst = "勉強"
+                if studyCount == 4 , studyCount == 9 , studyCount == 14 , studyCount == 19{
+                    tuti = "tuti2.mp3"
+                }else{
+                    tuti = "tuti1.mp3"
+                }
+            }else if tt % 2 == 1{
+                remaining = 300 - viewCount
+                sst = "簡易休憩"
                 tuti = "tuti1.mp3"
             }
-        }else if tt % 2 == 1{
-            remaining = 300 - viewCount
-            sst = "簡易休憩"
-            tuti = "tuti1.mp3"
-        }
         }
         
         
         
-           let content = UNMutableNotificationContent()
-           // 通知内容の設定
-           content.title = sst + "の時間が終了しました！"
-           content.body = "アプリを開くまで次のタイマーは再生されません"
+        let content = UNMutableNotificationContent()
+        // 通知内容の設定
+        content.title = sst + "の時間が終了しました！"
+        content.body = "アプリを開くまで次のタイマーは再生されません"
         content.sound = UNNotificationSound.init(named: UNNotificationSoundName(rawValue: tuti))
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(remaining), repeats: false)
-
-           // 通知スタイルを指定
-           let request = UNNotificationRequest(identifier: "uuid", content: content, trigger: trigger)
-           // 通知をセット
-           UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        
+        // 通知スタイルを指定
+        let request = UNNotificationRequest(identifier: "uuid", content: content, trigger: trigger)
+        // 通知をセット
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         
     }
     
@@ -134,7 +134,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
                     b = 0
                     totalCount += 1
                     userDefaults.set(totalCount, forKey: "total")
-                                userDefaults.synchronize()
+                    userDefaults.synchronize()
                     totalLabel.text = "累計ポモドーロ数:" + String(totalCount) + "ポモドーロ"
                     situationLabel.text = "長期休憩中"
                 }
@@ -176,7 +176,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
             }else if situationLabel.text == "長期休憩中.."{
                 situationLabel.text = "長期休憩中..."
             }
-
+            
             count()
             
             if viewCount == 1800{
@@ -187,7 +187,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
                 b = 0
                 totalCount += 1
                 userDefaults.set(totalCount, forKey: "total")
-                            userDefaults.synchronize()
+                userDefaults.synchronize()
                 totalLabel.text = "累計ポモドーロ数:" + String(totalCount) + "ポモドーロ"
                 situationLabel.text = "長期休憩中"
                 
@@ -208,7 +208,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
             
             
             //25分タイマー
-           count()
+            count()
             
             if viewCount == 1500{
                 tt += 1
@@ -219,10 +219,10 @@ class ViewController: UIViewController , UIApplicationDelegate{
                     
                     do {
                         player1 = try AVAudioPlayer(contentsOf: url1!)
-                                     player1?.play()
-                          } catch {
-                              print("error")
-                          }
+                        player1?.play()
+                    } catch {
+                        print("error")
+                    }
                 }
                 
                 
@@ -286,10 +286,10 @@ class ViewController: UIViewController , UIApplicationDelegate{
         
         do {
             player1 = try AVAudioPlayer(contentsOf: url1!)
-                         player1?.play()
-              } catch {
-                  print("error")
-              }
+            player1?.play()
+        } catch {
+            print("error")
+        }
     }
     
     
@@ -309,14 +309,14 @@ class ViewController: UIViewController , UIApplicationDelegate{
             OurTImer.invalidate()
             stopCounter += 1
             stopSituation = "true"
-
+            
         }else if stopCounter % 2 == 1{
             OurTImer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action), userInfo: nil, repeats: true)
             stopButton.setTitle("ストップ", for: .normal)
             stopCounter += 1
             stopSituation = "false"
         }
-
+        
     }
     
     
