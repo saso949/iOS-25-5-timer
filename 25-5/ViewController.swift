@@ -32,6 +32,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        view.backgroundColor = UIColor(red: 41/255, green: 42/255, blue: 47/255, alpha: 1.0)
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
