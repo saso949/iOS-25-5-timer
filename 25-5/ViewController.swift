@@ -14,6 +14,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
     var player:AVAudioPlayer?
     var player1:AVAudioPlayer?
     var request:UNNotificationRequest!
+    let generator = UINotificationFeedbackGenerator()
     
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var situationLabel: UILabel!
@@ -315,12 +316,15 @@ class ViewController: UIViewController , UIApplicationDelegate{
     var startSitu = "false"
     @IBAction func startButton(_ sender: Any) {
         if startSitu == "false"{
+            generator.notificationOccurred(.success)
             OurTImer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action), userInfo: nil, repeats: true)
             startSitu = "true"
         }
         if self.startButton.currentTitle == "スキップ"{
+            generator.notificationOccurred(.error)
             pulus()
         }else if self.startButton.currentTitle == "初めから"{
+            generator.notificationOccurred(.warning)
             viewCount = 0
             startButton.setTitle("スキップ", for: .normal)
             startButton.backgroundColor = UIColor(red: 155/255, green: 64/255, blue: 59/255, alpha: 1.0)
@@ -363,6 +367,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
     var stopSituation = "false"
     var stopCounter = 0
     @IBAction func stopButton(_ sender: Any) {
+        generator.notificationOccurred(.success)
         if stopCounter % 2 == 0{
             stopButton.setTitle("再開", for: .normal)
             OurTImer.invalidate()
