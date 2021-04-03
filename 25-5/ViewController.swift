@@ -58,6 +58,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
             /* ライトモード時の処理 */
         }
         
+        sttp()
         
     }
     
@@ -164,6 +165,8 @@ class ViewController: UIViewController , UIApplicationDelegate{
         viewCount += 1
         a = viewCount / 60
         b = viewCount % 60
+        
+        sttp()
         
         if viewCount <= 3{
             startButton.setTitle("スキップ", for: .normal)
@@ -299,6 +302,15 @@ class ViewController: UIViewController , UIApplicationDelegate{
         }
     }
     
+    @objc func sttp() {
+        if startSitu == "false"{
+            stopButton.backgroundColor = UIColor.gray
+            stopButton.isEnabled = false
+        }else if startSitu == "true"{
+            stopButton.backgroundColor = UIColor.link
+            stopButton.isEnabled = true
+        }
+    }
     
     var startSitu = "false"
     @IBAction func startButton(_ sender: Any) {
@@ -385,6 +397,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
             self.stopButton.setTitle("ストップ", for: .normal)
             self.countLabel.text = "00:00"
             self.situationLabel.text = "今の状況"
+            self.sttp()
         }))
         dialog.addAction(UIAlertAction(title: "いいえ", style: .cancel, handler: nil))
         // 生成したダイアログを表示
