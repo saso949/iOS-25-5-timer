@@ -98,8 +98,6 @@ class ViewController: UIViewController , UIApplicationDelegate{
                 sst = "簡易休憩"
                 tuti = "tuti1.mp3"
             }
-        }
-        
         
         
         let content = UNMutableNotificationContent()
@@ -114,8 +112,9 @@ class ViewController: UIViewController , UIApplicationDelegate{
         let request = UNNotificationRequest(identifier: "uuid", content: content, trigger: trigger)
         // 通知をセット
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-        
+        }
     }
+    
     
     @objc func start() {
         if stopSituation == "false"{
@@ -209,6 +208,13 @@ class ViewController: UIViewController , UIApplicationDelegate{
             
             //25分タイマー
             count()
+            if viewCount <= 3{
+                startButton.setTitle("スキップ", for: .normal)
+                startButton.backgroundColor = UIColor(red: 155/255, green: 64/255, blue: 59/255, alpha: 1.0)
+            }else if viewCount > 3{
+                startButton.setTitle("初めから", for: .normal)
+                startButton.backgroundColor = UIColor(red: 114/255, green: 140/255, blue: 54/255, alpha: 1.0)
+            }
             
             if viewCount == 1500{
                 tt += 1
@@ -293,11 +299,21 @@ class ViewController: UIViewController , UIApplicationDelegate{
     }
     
     
-    
+    var startSitu = "false"
     @IBAction func startButton(_ sender: Any) {
+        if startSitu == "false"{
         OurTImer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action), userInfo: nil, repeats: true)
-        startButton.isEnabled = false
-        startButton.backgroundColor = UIColor.gray
+            startSitu = "true"
+        }
+        if self.startButton.currentTitle == "スキップ"{
+            print("あああ")
+        }else if self.startButton.currentTitle == "初めから"{
+            viewCount = 0
+            startButton.setTitle("スキップ", for: .normal)
+            startButton.backgroundColor = UIColor(red: 155/255, green: 64/255, blue: 59/255, alpha: 1.0)
+            count()
+        }
+        
     }
     
     
