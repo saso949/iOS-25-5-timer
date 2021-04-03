@@ -367,5 +367,10 @@ class ViewController: UIViewController , UIApplicationDelegate{
     }
     
     
+    @IBAction func finishBL(_ sender: Any) {
+        print("ああ")
+    }
+    
+    
 }
 
