@@ -165,6 +165,14 @@ class ViewController: UIViewController , UIApplicationDelegate{
         a = viewCount / 60
         b = viewCount % 60
         
+        if viewCount <= 3{
+            startButton.setTitle("スキップ", for: .normal)
+            startButton.backgroundColor = UIColor(red: 155/255, green: 64/255, blue: 59/255, alpha: 1.0)
+        }else if viewCount > 3{
+            startButton.setTitle("初めから", for: .normal)
+            startButton.backgroundColor = UIColor(red: 114/255, green: 140/255, blue: 54/255, alpha: 1.0)
+        }
+        
         if studyCount % 5 == 0 && tt > 0 {
             if situationLabel.text == "長期休憩中..." || situationLabel.text == "勉強中"{
                 situationLabel.text = "長期休憩中"
@@ -208,13 +216,6 @@ class ViewController: UIViewController , UIApplicationDelegate{
             
             //25分タイマー
             count()
-            if viewCount <= 3{
-                startButton.setTitle("スキップ", for: .normal)
-                startButton.backgroundColor = UIColor(red: 155/255, green: 64/255, blue: 59/255, alpha: 1.0)
-            }else if viewCount > 3{
-                startButton.setTitle("初めから", for: .normal)
-                startButton.backgroundColor = UIColor(red: 114/255, green: 140/255, blue: 54/255, alpha: 1.0)
-            }
             
             if viewCount == 1500{
                 tt += 1
@@ -306,7 +307,31 @@ class ViewController: UIViewController , UIApplicationDelegate{
             startSitu = "true"
         }
         if self.startButton.currentTitle == "スキップ"{
-            print("あああ")
+            if studyCount % 5 == 0 && tt > 0 {
+                tt += 1
+                studyCount += 1
+                viewCount = 0
+                a = 0
+                b = 0
+                totalCount += 1
+                userDefaults.set(totalCount, forKey: "total")
+                userDefaults.synchronize()
+                totalLabel.text = "累計ポモドーロ数:" + String(totalCount) + "ポモドーロ"
+                situationLabel.text = "長期休憩中"
+            }else if tt % 2 == 0{
+                tt += 1
+                studyCount += 1
+                viewCount = 0
+                a = 0
+                b = 0
+                situationLabel.text = "勉強中"
+            }else if tt % 2 == 1{
+                tt += 1
+                viewCount = 0
+                a = 0
+                b = 0
+                situationLabel.text = "簡易休憩中"
+            }
         }else if self.startButton.currentTitle == "初めから"{
             viewCount = 0
             startButton.setTitle("スキップ", for: .normal)
