@@ -117,7 +117,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
     
     
     @objc func start() {
-        if stopSituation == "false"{
+        if stopSituation == "false" && startSitu == "true"{
             let now = Date()
             print("start!")
             let span = (floor(now.timeIntervalSince(time)))
@@ -370,7 +370,21 @@ class ViewController: UIViewController , UIApplicationDelegate{
     @IBAction func finishBL(_ sender: Any) {
         let dialog = UIAlertController(title: "タイマーを終了しますか？", message: "終了してもポモドーロ数はリセットされません", preferredStyle: .alert)
         dialog.addAction(UIAlertAction(title: "はい", style: .default, handler: {_ in
-            print("")
+            self.OurTImer.invalidate()
+            self.viewCount = 0
+            self.a = 0
+            self.b = 0
+            self.tt = 0
+            self.studyCount = 1
+            self.stopCounter = 0
+            self.stopSituation = "false"
+            self.startSitu = "false"
+            
+            self.startButton.backgroundColor = UIColor.link
+            self.startButton.setTitle("スタート", for: .normal)
+            self.stopButton.setTitle("ストップ", for: .normal)
+            self.countLabel.text = "00:00"
+            self.situationLabel.text = "今の状況"
         }))
         dialog.addAction(UIAlertAction(title: "いいえ", style: .cancel, handler: nil))
         // 生成したダイアログを表示
