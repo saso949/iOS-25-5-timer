@@ -172,10 +172,14 @@ class ViewController: UIViewController , UIApplicationDelegate{
         
         if viewCount <= 3{
             startButton.setTitle("スキップ", for: .normal)
-            startButton.backgroundColor = UIColor(red: 155/255, green: 64/255, blue: 59/255, alpha: 1.0)
+            startButton.backgroundColor = UIColor(red: 39/255, green: 38/255, blue: 38/255, alpha: 1.0)
+            startButton.borderColor = UIColor.black
+            startButton.setTitleColor(UIColor.white, for: .normal)
         }else if viewCount > 3{
             startButton.setTitle("初めから", for: .normal)
-            startButton.backgroundColor = UIColor(red: 114/255, green: 140/255, blue: 54/255, alpha: 1.0)
+            startButton.backgroundColor = UIColor(red: 38/255, green: 38/255, blue: 38/255, alpha: 1.0)
+            startButton.borderColor = UIColor.white
+            startButton.setTitleColor(UIColor.white, for: .normal)
         }
         
         if studyCount % 5 == 0 && tt > 0 {
@@ -332,7 +336,6 @@ class ViewController: UIViewController , UIApplicationDelegate{
             generator.notificationOccurred(.warning)
             viewCount = 0
             startButton.setTitle("スキップ", for: .normal)
-            startButton.backgroundColor = UIColor(red: 155/255, green: 64/255, blue: 59/255, alpha: 1.0)
             count()
         }
         
@@ -402,7 +405,8 @@ class ViewController: UIViewController , UIApplicationDelegate{
             self.stopSituation = "false"
             self.startSitu = "false"
             
-            self.startButton.backgroundColor = UIColor.link
+            self.startButton.backgroundColor = UIColor.white
+            self.startButton.setTitleColor(UIColor.black, for: .normal)
             self.startButton.setTitle("スタート", for: .normal)
             self.stopButton.setTitle("ストップ", for: .normal)
             self.countLabel.text = "00:00"
