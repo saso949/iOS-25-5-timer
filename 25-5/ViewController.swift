@@ -32,7 +32,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        view.backgroundColor = UIColor(red: 41/255, green: 42/255, blue: 47/255, alpha: 1.0)
+        view.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
@@ -306,10 +306,14 @@ class ViewController: UIViewController , UIApplicationDelegate{
     
     @objc func sttp() {
         if startSitu == "false"{
-            stopButton.backgroundColor = UIColor.gray
+            stopButton.backgroundColor =  UIColor(red: 38/255, green: 38/255, blue: 38/255, alpha: 1.0)
+            stopButton.borderColor = UIColor.white
+            stopButton.setTitleColor(UIColor.gray, for: .normal)
             stopButton.isEnabled = false
         }else if startSitu == "true"{
-            stopButton.backgroundColor = UIColor.link
+            stopButton.backgroundColor =  UIColor(red: 38/255, green: 38/255, blue: 38/255, alpha: 1.0)
+            stopButton.borderColor = UIColor.white
+            stopButton.setTitleColor(UIColor.white, for: .normal)
             stopButton.isEnabled = true
         }
     }

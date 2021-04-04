@@ -15,6 +15,7 @@
 		C508179F2608423000F2D1F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C508179D2608423000F2D1F9 /* LaunchScreen.storyboard */; };
 		C50817AA2608423100F2D1F9 /* _5_5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50817A92608423100F2D1F9 /* _5_5Tests.swift */; };
 		C50817B52608423100F2D1F9 /* _5_5UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50817B42608423100F2D1F9 /* _5_5UITests.swift */; };
+		C5ED662A261941A2002B0423 /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED6629261941A2002B0423 /* UIView+Border.swift */; };
 		C5EE6AE82615F7B80065F99B /* clock1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C5EE6AE72615F7B80065F99B /* clock1.mp3 */; };
 		C5EE6AED2615F7BF0065F99B /* clock2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C5EE6AEC2615F7BF0065F99B /* clock2.mp3 */; };
 		C5EE6B0C2615FB8F0065F99B /* tuti1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C5EE6B0B2615FB8F0065F99B /* tuti1.mp3 */; };
@@ -53,6 +54,7 @@
 		C50817B02608423100F2D1F9 /* 25-5UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "25-5UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C50817B42608423100F2D1F9 /* _5_5UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _5_5UITests.swift; sourceTree = "<group>"; };
 		C50817B62608423100F2D1F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5ED6629261941A2002B0423 /* UIView+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Border.swift"; sourceTree = "<group>"; };
 		C5EE6AE72615F7B80065F99B /* clock1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = clock1.mp3; path = ../../../../music/clock1.mp3; sourceTree = "<group>"; };
 		C5EE6AEC2615F7BF0065F99B /* clock2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = clock2.mp3; path = ../../../../music/clock2.mp3; sourceTree = "<group>"; };
 		C5EE6B0B2615FB8F0065F99B /* tuti1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = tuti1.mp3; path = ../../../../music/tuti1.mp3; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				C508179B2608423000F2D1F9 /* Assets.xcassets */,
 				C508179D2608423000F2D1F9 /* LaunchScreen.storyboard */,
 				C50817A02608423000F2D1F9 /* Info.plist */,
+				C5ED6629261941A2002B0423 /* UIView+Border.swift */,
 			);
 			path = "25-5";
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5ED662A261941A2002B0423 /* UIView+Border.swift in Sources */,
 				C50817972608422E00F2D1F9 /* ViewController.swift in Sources */,
 				C50817932608422E00F2D1F9 /* AppDelegate.swift in Sources */,
 				C50817952608422E00F2D1F9 /* SceneDelegate.swift in Sources */,
