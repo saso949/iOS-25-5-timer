@@ -91,7 +91,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
             }else if tt % 2 == 0{
                 remaining = 1500 - viewCount
                 sst = "勉強"
-                if studyCount == 4 , studyCount == 9 , studyCount == 14 , studyCount == 19{
+                if studyCount % 5 == 4 {
                     tuti = "tuti2.mp3"
                 }else{
                     tuti = "tuti1.mp3"
@@ -310,8 +310,8 @@ class ViewController: UIViewController , UIApplicationDelegate{
     
     @objc func sttp() {
         if startSitu == "false"{
-            stopButton.backgroundColor =  UIColor(red: 38/255, green: 38/255, blue: 38/255, alpha: 1.0)
-            stopButton.borderColor = UIColor.white
+            stopButton.backgroundColor =  UIColor.black
+            stopButton.borderColor = UIColor.gray
             stopButton.setTitleColor(UIColor.gray, for: .normal)
             stopButton.isEnabled = false
         }else if startSitu == "true"{
@@ -336,6 +336,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
             generator.notificationOccurred(.warning)
             viewCount = 0
             startButton.setTitle("スキップ", for: .normal)
+            startButton.borderColor = UIColor.black
             count()
         }
         
@@ -377,12 +378,16 @@ class ViewController: UIViewController , UIApplicationDelegate{
     @IBAction func stopButton(_ sender: Any) {
         generator.notificationOccurred(.success)
         if stopCounter % 2 == 0{
+            stopButton.setTitleColor(UIColor.black, for: .normal)
+            stopButton.backgroundColor = UIColor.white
             stopButton.setTitle("再開", for: .normal)
             OurTImer.invalidate()
             stopCounter += 1
             stopSituation = "true"
             
         }else if stopCounter % 2 == 1{
+            stopButton.setTitleColor(UIColor.white, for: .normal)
+            stopButton.backgroundColor = UIColor(red: 38/255, green: 38/255, blue: 38/255, alpha: 1.0)
             OurTImer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action), userInfo: nil, repeats: true)
             stopButton.setTitle("ストップ", for: .normal)
             stopCounter += 1
