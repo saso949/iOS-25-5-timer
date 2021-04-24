@@ -177,7 +177,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
             startButton.setTitleColor(UIColor.white, for: .normal)
         }else if viewCount > 3{
             startButton.setTitle("初めから", for: .normal)
-            startButton.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
+            startButton.backgroundColor = UIColor(red: 38/255, green: 38/255, blue: 38/255, alpha: 1.0)
             startButton.borderColor = UIColor.white
             startButton.setTitleColor(UIColor.white, for: .normal)
         }
@@ -315,7 +315,7 @@ class ViewController: UIViewController , UIApplicationDelegate{
             stopButton.setTitleColor(UIColor.gray, for: .normal)
             stopButton.isEnabled = false
         }else if startSitu == "true"{
-            stopButton.backgroundColor =  UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
+            stopButton.backgroundColor =  UIColor(red: 38/255, green: 38/255, blue: 38/255, alpha: 1.0)
             stopButton.borderColor = UIColor.white
             stopButton.setTitleColor(UIColor.white, for: .normal)
             stopButton.isEnabled = true
